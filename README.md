@@ -1,0 +1,2 @@
+# SVGcreator
+Creates SVG logos
