@@ -1,11 +1,11 @@
-// TODO: Include a class for each -- Triangle, Circle, Square.
-// Todo: Include test files for each class ^^^
-
 const inquirer = require('inquirer')
 const jest = require('jest')
 const fs = require('fs')
+
+// imports shape classes from shapes.js
 const { shapeOptions } = require('./lib/shapes.js')
 
+// questions for the app
 inquirer
   .prompt([ {
     type: 'input',
@@ -31,8 +31,11 @@ inquirer
   ])
   .then((answers) => {
     const { shape, shapeColor, txtColor, txt } = answers;
+    // allows shape class to be grabbed from shapes.js
     const InsertShapeClassHere = shapeOptions[shape]
+    // creates logo out of shape class template and the rest of answer input
     const logo = new InsertShapeClassHere(shapeColor, txtColor, txt)
+    // use fs to create logo.svg
     fs.writeFile('./output/logo.svg', logo.svg, (err) => {
       if (err) throw (err);
       console.log ("Generated logo.svg")
