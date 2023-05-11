@@ -33,8 +33,8 @@ inquirer
     const { shape, shapeColor, txtColor, txt } = answers;
     const InsertShapeClassHere = shapeOptions[shape]
     const logo = new InsertShapeClassHere(shapeColor, txtColor, txt)
-    fs.writeFile('./output/generatedlogo.svg', logo.svg, (err) => {
+    fs.writeFile('./output/logo.svg', logo.svg, (err) => {
       if (err) throw (err);
-      console.log ("Logo saved!")
+      console.log ("Generated logo.svg")
     })
   })
